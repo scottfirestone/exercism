@@ -1,11 +1,13 @@
-var Year = function() {};
+var Year = function(year) {
+  this.year = year;
+}
 
-Year.prototype.isLeap = function(input) {
-  if (input % 400 == 0){
+Year.prototype.isLeap = function() {
+  if (this.year % 400 == 0) {
     return true;
-  } else if (input % 100 == 0){
+  } else if (this.year % 100 == 0) {
     return false;
-  } else if (input % 4 == 0) {
+  } else if (this.year % 4 == 0) {
     return true;
   } else {
     return false;
