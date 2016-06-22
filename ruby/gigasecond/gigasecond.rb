@@ -1,2 +1,9 @@
-class GigaSecond
+class Gigasecond
+  def self.from(time)
+    time + (10**9)
+  end
+end
+
+class BookKeeping
+  VERSION = 3
 end
