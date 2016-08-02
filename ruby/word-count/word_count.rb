@@ -9,6 +9,6 @@ class Phrase
 
   private
     def arrange_words
-      phrase.downcase.gsub(/\W/, ' ').split.each { |word| word_count[word] += 1 }
+      phrase.downcase.gsub(/\W+/, ' ').split.each { |word| word_count[word] += 1 }
     end
 end
