@@ -1,19 +1,15 @@
 class Prime
+  def self.nth(num)
+    raise ArgumentError if num < 1
 
-  def self.nth(n)
-    raise ArgumentError.new('N must be positive') if n < 1
+    (2..Float::INFINITY)
+      .lazy
+      .select { |n| prime?(n) }
+      .first(num)
+      .last
+  end
 
-    primes ||= [2, 3]
-    candidate = primes.last
-
-    while n > primes.length
-      candidate += 2
-
-      unless primes.any? { |prime| candidate % prime == 0 }
-        primes.push(candidate)
-      end
-    end
-
-    primes[n - 1]
+  def self.prime?(num)
+    (2..num / 2).none? { |d| num.modulo(d).zero? }
   end
 end
